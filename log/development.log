@@ -1,0 +1,143 @@
+  [1m[35m (181.4ms)[0m  [1m[35mCREATE DATABASE "test_mailer_development" ENCODING = 'unicode'[0m
+  [1m[35m (91.9ms)[0m  [1m[35mCREATE DATABASE "test_mailer_test" ENCODING = 'unicode'[0m
+  [1m[35m (17.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4630860993419635380)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-06 09:17:32.952142', '2023-11-06 09:17:32.952144') RETURNING "key"[0m
+Migrating to CreateUsers (20231106091533)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "nom" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231106091533') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4630860993419635380)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4630860993419635380)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4630860993419635380)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (2.2ms)[0m  [1m[32mINSERT INTO "users" ("nom", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["nom", "Féfé"], ["email", "féfé@yopmail.com"], ["created_at", "2023-11-06 09:29:56.400174"], ["updated_at", "2023-11-06 09:29:56.400174"]]
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 4.8ms | Allocations: 2335)
+  Rendered layout layouts/mailer.html.erb (Duration: 5.1ms | Allocations: 2462)
+UserMailer#welcome_email: processed outbound mail in 88.4ms
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/" for 127.0.0.1 at 2023-11-06 10:30:56 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/shonanortes-unterwald/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/shonanortes-unterwald/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 375)
+Completed 200 OK in 13ms (Views: 4.6ms | ActiveRecord: 0.0ms | Allocations: 4265)
+
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("nom", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["nom", "Shona"], ["email", "lololol@gmail.com"], ["created_at", "2023-11-06 09:31:55.379613"], ["updated_at", "2023-11-06 09:31:55.379613"]]
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 0.5ms | Allocations: 892)
+  Rendered layout layouts/mailer.html.erb (Duration: 0.9ms | Allocations: 980)
+UserMailer#welcome_email: processed outbound mail in 1.9ms
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4630860993419635380)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(4630860993419635380)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4630860993419635380)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4630860993419635380)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("nom", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["nom", "Féfé"], ["email", "féfé@yopmail.com"], ["created_at", "2023-11-06 09:41:33.147162"], ["updated_at", "2023-11-06 09:41:33.147162"]]
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 3.3ms | Allocations: 1593)
+  Rendered layout layouts/mailer.html.erb (Duration: 3.5ms | Allocations: 1720)
+UserMailer#welcome_email: processed outbound mail in 48.2ms
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("nom", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["nom", "Féfé"], ["email", "féfé@yopmail.com"], ["created_at", "2023-11-06 10:04:59.208702"], ["updated_at", "2023-11-06 10:04:59.208702"]]
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (Duration: 0.6ms | Allocations: 300)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.2ms | Allocations: 566)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (Duration: 0.4ms | Allocations: 155)
+  Rendered layout layouts/mailer.text.erb (Duration: 1.0ms | Allocations: 347)
+UserMailer#welcome_email: processed outbound mail in 54.7ms
+Delivered mail 6548ba4b6049c_15666c6c79535@MBP-de-Shona.mail (987.9ms)
+Date: Mon, 06 Nov 2023 11:04:59 +0100
+From: no-reply@monsite.fr
+To: =?UTF-8?B?ZsOpZsOp?=@yopmail.com
+Message-ID: <6548ba4b6049c_15666c6c79535@MBP-de-Shona.mail>
+Subject: Bienvenue chez nous !
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6548ba4b5dd6c_15666c6c794e4";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_6548ba4b5dd6c_15666c6c794e4
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+U2FsdXQgRsOpZsOpIGV0IGJpZW52ZW51ZSBjaGV6IG5vdXMgIQ0KPT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PQ0KDQpUdSB0J2VzIGluc2NyaXQgc3VyIG1vbnNpdGUuZnIgZW4g
+dXRpbGlzYW50IGwnZS1tYWlsIHN1aXZhbnQgOiBmw6lmw6lAeW9wbWFpbC5j
+b20uDQoNClBvdXIgYWNjw6lkZXIgw6AgdG9uIGVzcGFjZSBjbGllbnQsIGNv
+bm5lY3RlLXRvaSB2aWEgOiBodHRwOi8vbW9uc2l0ZS5mci9sb2dpbi4NCg0K
+w4AgdHLDqHMgdml0ZSBzdXIgbW9uc2l0ZS5mciAhDQo=
+
+----==_mimepart_6548ba4b5dd6c_15666c6c794e4
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />
+  </head>
+  <body>
+    <h1>Salut F=C3=A9f=C3=A9 et bienvenue chez nous !</h1>
+    <p>
+      Tu t'es inscrit sur monsite.fr en utilisant l'e-mail suivant : f=C3=
+=A9f=C3=A9@yopmail.com.
+    </p>
+    <p>
+      Pour acc=C3=A9der =C3=A0 ton espace client, connecte-toi via : http=
+://monsite.fr/login.
+    </p>
+    <p> =C3=80 tr=C3=A8s vite sur monsite.fr !
+  </body>
+</html>
+  </body>
+</html>
+
+----==_mimepart_6548ba4b5dd6c_15666c6c794e4--
+
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
